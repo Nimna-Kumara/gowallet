@@ -8,6 +8,7 @@ import (
 )
 
 type Config struct {
+	// DSN = Data Source Name
 	DBDSN string
 }
 
@@ -17,6 +18,7 @@ func LoadConfig() *Config {
 		log.Println("Warning: .env file not found, using environment variables, err: %w", err)
 	}
 
+	// gowallet_user:123456@tcp(localhost:3306)/gowallet?parseTime=true
 	dsn := os.Getenv("DB_USER") + ":" +
 		os.Getenv("DB_PASSWORD") + "@tcp(" +
 		os.Getenv("DB_HOST") + ":" +
